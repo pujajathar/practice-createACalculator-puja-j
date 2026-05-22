@@ -71,15 +71,16 @@ function findMin(...array)   //....    is a operator to expand the values of arr
 }
  
 //6. Random number generating
-function random(minimumNumber, maximunNumber)
+function random(min, max)
 {
-  return Math.random(minimumNumber, maximunNumber);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 //7. Round number
 function round(number1)
 {
-    return Math.round(number1);
+  let newnNum = Number(number1).toFixed(2);
+  return newnNum;
+
 } 
 
 
@@ -92,9 +93,10 @@ console.log(`Square-root of 144 is: `, squareRoot(144));
 console.log(`Max number from [3, 78, -12, 0.5, 27] is: `, findMax(...array));
 console.log(`Min number from [3, 78, -12, 0.5, 27] is : `,findMin(...array));
 console.log(`Random number between 1 and 50 is: `, random(1, 50));
-console.log(`Round of 23.67891 is: `, round(23.67891).toFixed(2));
+console.log(`Round of 23.67891 is: `, (round(23.67891)));
 
-
+/*============Combining the individual functions into a single "calculator" program where the user can
+              select an operation and input the required values==================*/
 
 function calculator()
 {
@@ -148,22 +150,23 @@ else if(option == "min")
 
 else if(option == "random")
 {
-    let minimumNumber = readline.question("Enter minimum number: ");
-    let maximumNumber = readline.question("Enter maximum number: ");
-    console.log(`Random number between ${minimumNumber} and ${maximumNumber} is: `, random(minimumNumber, maximumNumber));
+    let min = Number(readline.question("Enter minimum number: "));
+    let max = Number(readline.question("Enter maximum number: "));
+    console.log(`Random number between ${min} and ${max} is: `, random(min, max));
 }
 
 else if(option == "round")
-{
+{   
     let number1 = readline.question("Enter the number with decimals: ");
-    console.log(`Round of number ${number1} is: `, round(number1));
+   
+    console.log(`Round of number ${number1} is: `, Number(number1));
 }
 
 else if(option != " ")
 { 
     console.log("Invalid choice");
 }
-//let readline = require('readline-sync');
+
 let choice = readline.question("Would like to continue...? y/n ", "\n");
 if(choice !== "y")
 {
