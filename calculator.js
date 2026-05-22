@@ -35,34 +35,27 @@ where the user can select an operation and input the required values.
 */
                                                                             
 
-// Functions for each operation
+//++++++++++ Functions for each operation++++++++++++\\
+//+++++++++++++++++++++++++++++++++++++++++++++++++++\\
 
 
 //1. Absolute value function
-
 function absoluteValue(num)
 {
     return Math.abs(num);
 }
-console.log(`Abslute value of -45.67 is: ` , absoluteValue(-45.67));
-
 
 //2. power calculation
-
 function power(base, exponent)
 { 
     return Math.pow(base, exponent);
 }
-console.log(`Power of base 3 and exponent 5 is: `, power(3, 5));
-
 
 //3. Square root calculation
 function squareRoot(num)
 {
     return Math.sqrt(num);
 }
-console.log(`Square-root of 144 is: `, squareRoot(144));
-
 
 //4. Maximum number
 let array = [3, 78, -12, 0.5, 27];
@@ -70,32 +63,43 @@ function findMax(...array)   //....    is a operator to expand the values of arr
 {
     return Math.max(...array);
 }
-console.log(`Max number from [3, 78, -12, 0.5, 27] is: `, findMax(...array));
-
 
 //5. minimum number
 function findMin(...array)   //....    is a operator to expand the values of array number into indivisual values
 {
     return Math.min(...array);
 }
-console.log(`Min number from [3, 78, -12, 0.5, 27] is : `,findMin(...array));  // testing our function
-
+ 
 //6. Random number generating
 function random(minimumNumber, maximunNumber)
 {
   return Math.random(minimumNumber, maximunNumber);
 }
-console.log(`Random number between 1 and 50 is: `, random(1, 50));
 
 //7. Round number
 function round(number1)
 {
     return Math.round(number1);
 } 
+
+
+//======Testing Each Function With sample output=======\\
+//=====================================================\\
+console.log("\n","====Testing Each Function With sample output====", "\n");
+console.log(`Abslute value of -45.67 is: ` , absoluteValue(-45.67));
+console.log(`Power of base 3 and exponent 5 is: `, power(3, 5));
+console.log(`Square-root of 144 is: `, squareRoot(144));
+console.log(`Max number from [3, 78, -12, 0.5, 27] is: `, findMax(...array));
+console.log(`Min number from [3, 78, -12, 0.5, 27] is : `,findMin(...array));
+console.log(`Random number between 1 and 50 is: `, random(1, 50));
 console.log(`Round of 23.67891 is: `, round(23.67891).toFixed(2));
 
-function calculator(){
 
+
+function calculator()
+{
+    let isContinue = true;
+while(isContinue){
 let Menu = {absolute: "absolute Value Calulation", 
     power: "power calculation",  
     squareRoot: "Square root calculation",
@@ -104,12 +108,12 @@ let Menu = {absolute: "absolute Value Calulation",
     random: "Random number generating",
     round: "Rounding Number"
     };
-console.log("List of operations: ", "\n", Menu);
+console.log("\n", "List of operations: ", "\n", Menu, "\n");
 
-}
+
 
 let readline = require('readline-sync');
-let option = readline.question("Enter your option: ");
+let option = readline.question("Enter your option from above List: ");
 
 if(option == "absolute")
 {
@@ -120,7 +124,7 @@ else if (option == "power")
 {
 let base = readline.question("Enter base number: ");
 let exponent = readline.question("Enter exponent: ");
-console.log(`Power of base ${base} and exponent ${exponent} is: `, power(base, exponent));
+console.log(`Power of base ${base} and exponent ${exponent} is: `, power(base, exponent), "\n");
 }
 
 else if(option == "squareRoot")
@@ -154,3 +158,20 @@ else if(option == "round")
     let number1 = readline.question("Enter the number with decimals: ");
     console.log(`Round of number ${number1} is: `, round(number1));
 }
+
+else if(option != " ")
+{ 
+    console.log("Invalid choice");
+}
+//let readline = require('readline-sync');
+let choice = readline.question("Would like to continue...? y/n ", "\n");
+if(choice !== "y")
+{
+    isContinue = false;
+
+    console.log("\n","Thank you for using the calculator!", "\n");
+}
+}
+}
+
+calculator();
