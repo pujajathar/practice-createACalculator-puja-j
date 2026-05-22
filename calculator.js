@@ -148,3 +148,9 @@ else if(option == "random")
     let maximumNumber = readline.question("Enter maximum number: ");
     console.log(`Random number between ${minimumNumber} and ${maximumNumber} is: `, random(minimumNumber, maximumNumber));
 }
+
+else if(option == "round")
+{
+    let number1 = readline.question("Enter the number with decimals: ");
+    console.log(`Round of number ${number1} is: `, round(number1));
+}
